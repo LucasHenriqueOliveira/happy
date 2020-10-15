@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# happy
-Frontend in React to Happy
-=======
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -46,4 +42,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
->>>>>>> 9edbfca28dcfc2b684a1a5b4c093979f542839a2

@@ -3,6 +3,7 @@ import { FiArrowRight, FiPlus } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
+import api from '../services/api';
 import mapIcon from '../utils/mapIcon';
 import mapMarker from '../images/map-marker.svg';
 
@@ -21,7 +22,23 @@ interface Orphanage {
 }
 
 const OrphanagesMap: React.FC = () => {
-	const [orphanages, setOrphanages] = useState<Orphanage[]>([] as Orphanage[])
+	const [orphanages, setOrphanages] = useState<Orphanage[]>([] as Orphanage[]);
+
+	useEffect(() => {
+		api.get('/orphanages')
+			.then(({ data }) => setOrphanages(data))
+			.catch(({ response }) => {
+				const { message, errors } = response.data
+
+				if (!message) {
+					console.log(response)
+					return alert('Falha ao listar os orfanatos!')
+				}
+
+				console.error(errors)
+				alert(message)
+			})
+	}, []);
 
 	return (
 		<div id="page-map">
